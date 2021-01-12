@@ -1,7 +1,6 @@
-# sistema_info_biblioteca
+# SISTEMA DE INFORMAÇÃO DE BIBLIOTECÁRIO
 
-
-Laravel + Angular
+Laravel + Angular + JWT
 
 MANUAL DO SISTEMA 
 
