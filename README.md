@@ -93,16 +93,12 @@ LOGIN COM PERFIL ADMINISTRADOR:
 
 E-MAIL: taylor@gmail.com
 
-<br>
-
 SENHA: 123
 
 
 LOGIN COM PERFIL CLIENTE:
 
 E-MAIL: larissa@gmail.com
-
-<br>
 
 SENHA: 123
 
