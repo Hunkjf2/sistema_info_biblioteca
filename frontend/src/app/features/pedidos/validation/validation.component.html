@@ -1,0 +1,35 @@
+<div class="modal-content">
+   <div sa-widget color="darken">
+      <header>
+         <span class="widget-icon"> <i class="fa fa-eye "></i> </span>
+         <h2>Validações de Pedidos<span></span></h2>
+      </header>
+      <div class="row">
+         <form [formGroup]="formulario">
+            <div class="col-md-12">
+               <label>Status do Pedido</label>
+               <ng-select
+               [searchable]="true"
+               formControlName="status"
+               [searchable]="true"
+               value="value"
+               [items]="array_pedi"
+               bindLabel="value"
+               bindValue="value"
+               >
+               </ng-select>
+            </div>
+            <div class="col-lg-12">
+               <div style="text-align: center !important; margin-top: 10px;" *ngIf="showAlert" class="alert alert-{{alertMessage}} fade in">
+                  <i class="fa-fw fa fa-{{alertMessage}}"></i>
+                  {{message}}
+               </div>
+            </div>
+            <div class="col-md-12 btn-edit">
+               <button class="btn btn-default btn-sm espaco" (click)="fechar()">Fechar</button>
+               <button class="btn btn-success btn-sm espaco" [disabled]="!formulario.valid" (click)="salvar()">Salvar</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

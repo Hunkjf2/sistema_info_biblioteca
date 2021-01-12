@@ -1,0 +1,31 @@
+.marginn{
+    margin-right: 25px;
+    font-size: 16px;
+    margin-top: -9px;
+    color: #474544;
+}
+
+.marginn2{
+    margin-right: 35px;
+    font-size: 16px;
+    margin-top: -9px;
+    color: #474544;
+}
+
+.marginn3{
+    margin-right: 35px;
+    font-size: 16px;
+    margin-top: -9px;
+    color: #fff;
+    background-color: black;
+    padding: 0px;
+}
+
+.marginn4{
+    margin-right: 5px;
+    font-size: 16px;
+    margin-top: -9px;
+    color: #fff;
+    background-color: black;
+    padding: 0px;
+}

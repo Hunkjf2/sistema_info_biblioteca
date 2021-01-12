@@ -1,0 +1,76 @@
+<div id="content">
+   <div class="col-sm-12">
+      <div class="well">
+         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+               <div sa-widget color="darken">
+                  <header>
+                     <span class="widget-icon"> <i class="fa fa-list-alt"></i> </span>
+                     <h2 *ngIf="button === 1">Novo Grupo de Usuário <span></span></h2>
+                     <h2 *ngIf="button === 2">Editar Grupo de Usuário <span></span></h2>
+                  </header>
+                  <div>
+                     <div class="widget-body">
+                        <form [formGroup]="formulario">
+                           <div class="form-group row">
+                              <div class="col-md-3">
+                                 <label class="titulo"><i class="fa fa-user"></i><b> Dados do Grupo de Usuário</b></label>
+                              </div>
+                           </div>
+                           <div class="form-group row">
+                              <div class="col-md-6">
+                                 <label>Nome*</label>
+                                 <input type="text" autocomplete="off" class="form-control input-md" formControlName="descricao" [(ngModel)]="grupo_usuario.descricao">
+                              </div>
+                           </div>
+                           <div class="form-group row">
+                              <div class="col-md-6">
+                                 <label>Premissões*</label>
+                                 <br><br>
+                                 <table id="example" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                                    <tr>
+                                       <th scope="col">Modulo</th>
+                                       <th scope="col">Nome</th>
+                                       <th scope="col">Possui Permissão ? <br> <span *ngIf="marcar == false">Marcar Todos</span>  <span *ngIf="marcar">Desmarcar Todos</span> 
+                                          <br> 
+                                          <input type="checkbox" (change)="allTrades($event)">
+                                       </th>
+                                    </tr>
+                                    <tbody formArrayName="permissaoArray">
+                                       <tr scope="row" *ngFor="let order of formulario.controls.permissaoArray.controls; let i = index">
+                                          <td scope="row">{{orders[i].grupo}}</td>
+                                          <td scope="row">{{orders[i].nome}}</td>
+                                          <td>
+                                             <label>
+                                             <input type="checkbox" [formControlName]="i" [value]="orders[i].id"> 
+                                             <span *ngIf="formulario.get('permissaoArray').value[i] ? true: false">Sim</span>
+                                             <span *ngIf="formulario.get('permissaoArray').value[i] ? false: true">Não</span>
+                                             </label> 
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-10">
+                                 <button class="btn btn-default btn-sm" (click)="volta()">Cancelar</button>
+                                 <button *ngIf="button === 1" [disabled]="!formulario.valid" (click)="criar()" class="btn btn-primary btn-sm space"><i class="fa fa-save"></i> Salvar</button>
+                                 <button *ngIf="button === 2" [disabled]="!formulario.valid" (click)="edit()" class="btn btn-primary btn-sm space"><i class="fa fa-save"></i> Salvar</button>
+                              </div>
+                              <div class="col-lg-10">
+                                 <div style="text-align: left !important; margin-top: 10px;" *ngIf="showAlert" class="alert alert-{{alertMessage}} fade in">
+                                    <i class="fa-fw fa fa-{{alertMessage}}"></i>
+                                    {{message}}
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

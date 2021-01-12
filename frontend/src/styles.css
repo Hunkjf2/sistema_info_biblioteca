@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* #GOOGLE FONT */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700");
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.txt-center{
+    text-align: center;
+}

@@ -1,0 +1,70 @@
+<header id="header" class="animated fadeInDown">
+  <div id="logo-group">
+     <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"> </span>
+  </div>
+  <span id="extr-page-header-space">
+  <span class="hidden-mobile hiddex-xs">Vamos Entrar?</span> <a routerLink="/auth/login" class="btn btn-danger">Aperte</a> </span>
+</header>
+<div>
+  <p-messages id="color" [(value)]="msgs"></p-messages>
+</div>
+<br> <br> <br> <br>
+
+<div style="background-color: #ff0000; border-color: #f10500;"class="alert alert-danger alert-dismissible" role="alert" *ngIf="errorCredentials">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong [innerHTML]="mensagem"></strong>
+</div>
+
+<div style="background-color: #009c15c2; border-color: #009c15c2;"class="alert alert-danger alert-dismissible" role="alert" *ngIf="sucessCredentials">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong [innerHTML]="mensagem"></strong>
+</div>
+
+<div id="main" role="main" class="animated fadeInDown baixo">
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
+     <div class="row ">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+           <div class="well no-padding">
+              <form [formGroup]="formulario" id="smart-form-register" class="smart-form client-form">
+                 <header>
+                    Nova Conta*
+                 </header>
+                 <fieldset>
+                    <section>
+                       <label class="input"> <i class="icon-append fa fa-user"></i>
+                       <input type="text" formControlName="name" name="name" placeholder="Nome" id="name">
+                       <b class="tooltip tooltip-bottom-right">Digite seu nome</b> </label>
+                    </section>
+                    <section>
+                       <label class="input"> <i class="icon-append fa fa-envelope"></i>
+                       <input type="email" formControlName="email" name="email" placeholder="Email" id="email">
+                       <b class="tooltip tooltip-bottom-right">Digite um e-mail</b> </label>
+                    </section>
+                    <section>
+                       <label class="input"> <i class="icon-append fa fa-key"></i>
+                       <input type="password" formControlName="password" name="password" placeholder="Senha" id="password">
+                       <b class="tooltip tooltip-bottom-right">Digite uma senha</b> </label>
+                    </section>
+                 </fieldset>
+                 <fieldset>
+                 </fieldset>
+                 <footer>
+                    <button type="submit" [disabled]="formulario.invalid" (click)="register()" class="btn btn-primary">Criar</button>
+                 </footer>
+                 <div class="message">
+                    <i class="fa fa-check"></i>
+                    <p>
+                       Thank you for your registration!
+                    </p>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<ng-template #termsModal>
+</ng-template>

@@ -1,0 +1,49 @@
+<div id="content">
+    <div class="row">
+    <div class="col-sm-12">
+       <div class="well">
+          <div sa-widget color="darken">
+             <header>
+                <span class="widget-icon"> <i class="fa fa-list-alt"></i> </span>
+                <h2>Empréstimos<span></span></h2>
+             </header>
+             <div class="row">
+                <br><br><br>
+                <p-table #dt [columns]="cols" [value]="Iemprestimo" [paginator]="true" [rows]="10">
+                <ng-template pTemplate="caption">
+                   <div style="text-align: right">
+                      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                      <input type="text" pInputText size="50" placeholder="Pesquisar" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                   </div>
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                   <tr class="ui-p-1 txt-center">
+                      <th *ngFor="let col of columns;let i = index"
+                      [pSortableColumn]="col.field"
+                      [pSortableColumnDisabled]="!col.sortable ? true : false"
+                      [attr.colspan]="i == 6?columns.length:''"
+                      [ngClass]="col.class"
+                      [style.width]="col.width"
+                      >
+                      {{col.header}}
+                      <ng-container *ngIf="col.sortable">
+                         <p-sortIcon [field]="col.field"></p-sortIcon>
+                      </ng-container>
+                      </th>
+                   </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-emprestimo let-columns="columns">
+                   <tr style="text-align: center">
+                      <td>{{emprestimo.livros.nome }}</td>
+                      <td>{{emprestimo.usuarios.name }}</td>
+                      <td>{{emprestimo.data_emprestimo | date:"dd/MM/yyyy" }}</td>
+                      <td>{{emprestimo.data_devolucao | date:"dd/MM/yyyy" }}</td>
+                      <td>{{emprestimo.status }}</td>
+                   </tr>
+                </ng-template>
+                </p-table>
+                <br><br>
+             </div>
+          </div>
+       </div>
+    </div>

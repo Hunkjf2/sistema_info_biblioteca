@@ -1,0 +1,13 @@
+<!-- RIBBON -->
+<div id="ribbon">
+  <ng-template #tipContent><i class="text-warning fa fa-warning"></i> Warning! This will reset all your widget settings.</ng-template>
+
+    <span style="display:none" class="ribbon-button-alignment">
+      <span id="refresh" class="btn btn-ribbon" (click)="resetWidgets()"
+            placement="bottom"
+            [tooltip]="tipContent">
+        <i class="fa fa-refresh"></i>
+      </span>
+    </span>
+  <sa-route-breadcrumbs style="display:none"></sa-route-breadcrumbs>
+</div>

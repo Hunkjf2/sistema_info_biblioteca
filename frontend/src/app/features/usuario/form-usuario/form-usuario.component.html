@@ -1,0 +1,70 @@
+<div id="content">
+   <div class="col-sm-12">
+      <div class="well">
+         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+               <div sa-widget color="darken">
+                  <header>
+                     <span class="widget-icon"> <i class="fa fa-list-alt"></i> </span>
+                     <h2 *ngIf="button === 1">Novo Usuário <span></span></h2>
+                     <h2 *ngIf="button === 2">Editar Usuário <span></span></h2>
+                  </header>
+                  <div>
+                     <div class="widget-body">
+                        <form [formGroup]="formulario">
+                           <div class="form-group row">
+                              <div class="col-md-3">
+                                 <label class="titulo"><i class="fa fa-user"></i><b> Dados do Usuário</b></label>
+                              </div>
+                           </div>
+                           <div class="form-group row">
+                              <div class="col-md-6">
+                                 <label>Nome*</label>
+                                 <input type="text" autocomplete="off" class="form-control input-md" formControlName="name" [(ngModel)]="usuario.name">
+                              </div>
+                              <div class="col-md-6">
+                                 <label>Email*</label>
+                                 <input type="email" autocomplete="off" class="form-control input-md" formControlName="email" [(ngModel)]="usuario.email">
+                              </div>
+                           </div>
+                           <div class="form-group row">
+                              <div class="col-md-6">
+                                 <label>Senha*</label>
+                                 <input type="password" autocomplete="off" class="form-control input-md" formControlName="password" [(ngModel)]="usuario.password">
+                              </div>
+                              <div class="col-md-6">
+                                 <label>Grupo de Usuário</label>
+                                 <ng-select
+                                 [searchable]="true"
+                                 formControlName="id_grupo"
+                                 [(ngModel)]="usuario.id_grupo"
+                                 [searchable]="true"
+                                 [items]="grupo_user"
+                                 bindValue="id" 
+                                 bindLabel="descricao"
+                                 >
+                                 </ng-select>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-10">
+                                 <button class="btn btn-default btn-sm" (click)="volta()">Cancelar</button>
+                                 <button *ngIf="button === 1" [disabled]="!formulario.valid" (click)="criar()" class="btn btn-primary btn-sm space"><i class="fa fa-save"></i> Salvar</button>
+                                 <button *ngIf="button === 2" [disabled]="!formulario.valid" (click)="edit()" class="btn btn-primary btn-sm space"><i class="fa fa-save"></i> Salvar</button>
+                              </div>
+                              <div class="col-lg-10">
+                                 <div style="text-align: left !important; margin-top: 10px;" *ngIf="showAlert" class="alert alert-{{alertMessage}} fade in">
+                                    <i class="fa-fw fa fa-{{alertMessage}}"></i>
+                                    {{message}}
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

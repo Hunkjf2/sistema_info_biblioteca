@@ -1,0 +1,63 @@
+<aside id="left-panel">
+  <!-- User info -->
+  <sa-login-info></sa-login-info>
+  <!-- end user info -->
+  <nav>
+     <ul saSmartMenu>
+        <li routerLinkActive="active">
+           <a routerLink="/home" title="Dashboards">
+           <i class="fa fa-lg fa-fw fa-home"></i>
+           <span class="menu-item-parent">{{'Home' | i18n}}</span>
+           </a> 
+        </li>
+        <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-autor'])">
+           <a routerLink="/autor" title="Autor">
+           <i class="fa fa-lg fa-fw fa-circle"></i>
+           <span class="menu-item-parent">{{'Autor' | i18n}}</span>
+           </a> 
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-grupo'])">
+            <a routerLink="/grupo" title="Grupo de Usuário">
+            <i class="fa fa-lg fa-fw fa-group"></i>
+            <span class="menu-item-parent">{{'Grupo de Usuário' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-livro'])">
+            <a routerLink="/livro" title="Livro">
+            <i class="fa fa-lg fa-fw fa-book"></i>
+            <span class="menu-item-parent">{{'Livro' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-usuario'])">
+            <a routerLink="/usuario" title="Usuário">
+            <i class="fa fa-lg fa-fw fa-user"></i>
+            <span class="menu-item-parent">{{'Usuário' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-pedido'])">
+            <a routerLink="/pedidos" title="Pedidos">
+            <i class="fa fa-lg fa-fw fa-laptop"></i>
+            <span class="menu-item-parent">{{'Pedidos' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-meu-pedido'])">
+            <a routerLink="/meus-pedidos" title="Meus Pedidos">
+            <i class="fa fa-lg fa-fw fa-desktop"></i>
+            <span class="menu-item-parent">{{'Meus Pedidos' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-emprestimo'])">
+            <a routerLink="/emprestimo" title="Empréstimo">
+            <i class="fa fa-lg fa-fw fa-folder-open"></i>
+            <span class="menu-item-parent">{{'Empréstimo' | i18n}}</span>
+            </a> 
+         </li>
+         <li routerLinkActive="active" *ngIf="permissoesService.validaPermissoes(['visualizar-meu-emprestimo'])">
+            <a routerLink="/my-emprestimo" title="Meus Empréstimos">
+            <i class="fa fa-lg fa-fw fa-suitcase"></i>
+            <span class="menu-item-parent">{{'Meus Empréstimos' | i18n}}</span>
+            </a> 
+         </li>
+     </ul>
+  </nav>
+  <sa-minify-menu></sa-minify-menu>
+</aside>

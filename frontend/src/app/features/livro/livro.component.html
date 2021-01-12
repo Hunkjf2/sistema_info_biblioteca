@@ -1,0 +1,58 @@
+<div id="content">
+    <div class="row">
+    <div class="col-sm-12">
+       <div class="well">
+          <div sa-widget color="darken">
+             <header>
+                <span class="widget-icon"> <i class="fa fa-list-alt"></i> </span>
+                <h2>Livros<span></span></h2>
+             </header>
+             <div class="row">
+                <a class="btn btn-default pull-right" *ngIf="permissoesService.validaPermissoes(['incluir-livro'])" [routerLink]="['/livro/novo-livro']"><i class="fa fa-plus-square"></i> Novo</a>
+                <br><br><br>
+                <p-table #dt [columns]="cols" [value]="Ilivro" [paginator]="true" [rows]="10">
+                <ng-template pTemplate="caption">
+                   <div style="text-align: right">
+                      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                      <input type="text" pInputText size="50" placeholder="Pesquisar" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                   </div>
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                   <tr class="ui-p-1 txt-center">
+                      <th *ngFor="let col of columns;let i = index"
+                      [pSortableColumn]="col.field"
+                      [pSortableColumnDisabled]="!col.sortable ? true : false"
+                      [attr.colspan]="i == 5?columns.length:''"
+                      [ngClass]="col.class"
+                      [style.width]="col.width"
+                      >
+                      {{col.header}}
+                      <ng-container *ngIf="col.sortable">
+                         <p-sortIcon [field]="col.field"></p-sortIcon>
+                      </ng-container>
+                      </th>
+                   </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-livro let-columns="columns">
+                   <tr style="text-align: center">
+                      <td>{{livro.nome }}</td>
+                      <td>{{livro.status }}</td>
+                      <td *ngIf="(
+                         (this.permissoesService.validaPermissoes(['excluir-livro']))
+                         || (this.permissoesService.validaPermissoes(['editar-livro']))
+                         || (this.permissoesService.validaPermissoes(['detalhe-livro']))
+                         || (this.permissoesService.validaPermissoes(['solicitar-livro']))
+                         )">
+                         <a  class="btn-sm btn-warning" *ngIf="permissoesService.validaPermissoes(['detalhe-livro'])" style="margin: 5px;"(click)="detalhe_livro(livro.id)"tooltip="Descrições do livro"><i aria-hidden="true" class="fa fa-search"></i></a>
+                         <a  class="btn-sm btn-success" *ngIf="permissoesService.validaPermissoes(['solicitar-livro'])" (click)="solicitaPedido(livro.id)"tooltip="Solicitar Emprestimo"><i aria-hidden="true" class="fa fa-pencil-square-o"></i></a>
+                         <a  class="btn-sm btn-primary" *ngIf="permissoesService.validaPermissoes(['editar-livro'])" style="margin: 5px;" [routerLink]="['/livro',livro.id]" tooltip="Editar Autor"><i aria-hidden="true" class="fa fa-pencil"></i></a>
+                         <a  class="btn-sm btn-danger"  *ngIf="permissoesService.validaPermissoes(['excluir-livro'])" (click)="deletar(livro.id)" tooltip="Excluir Livro" ><i aria-hidden="true" class="fa fa-trash"></i></a>
+                      </td>
+                   </tr>
+                </ng-template>
+                </p-table>
+                <br><br>
+             </div>
+          </div>
+       </div>
+    </div>

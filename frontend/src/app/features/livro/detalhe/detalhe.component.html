@@ -1,0 +1,26 @@
+<div class="modal-content">
+    <div sa-widget color="darken">
+        <header>
+           <span class="widget-icon"> <i class="fa fa-eye "></i> </span>
+           <h2>Informações do Livro<span></span></h2>
+        </header>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="col-md-4">
+                 Nome do Livro:
+                 <p>{{ livros.nome }}</p>
+              </div>
+              <div class="col-md-4">
+                Autores: <p *ngFor="let autor of livros.autores">{{ autor.nome }}</p><br>
+              </div>
+              <div class="col-md-4">
+                Data de Criação: 
+                <p>{{ livros.created_at | date:"dd/MM/yyyy" }}</p>
+              </div>
+          </div>
+          <div class="col-md-12 center">
+            <button class="btn btn-default btn-sm espaco" (click)="fechar()">Fechar</button>
+          </div>
+        </div>
+      </div> 
+ </div>

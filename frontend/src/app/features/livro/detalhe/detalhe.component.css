@@ -1,0 +1,9 @@
+.modal-content{
+    height: 0px !important;
+}
+
+.center{
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}

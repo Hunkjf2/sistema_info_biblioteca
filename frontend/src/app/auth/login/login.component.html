@@ -1,0 +1,65 @@
+<header id="header" class="animated fadeInDown">
+  <div id="logo-group">
+    <span id="logo"> <img src="assets/img/logo.png" alt="IPARK"> </span>
+  </div>
+  <span id="extr-page-header-space">
+  <span class="hidden-mobile hiddex-xs"></span> <a routerLink="/auth/reset" class="btn btn-danger">Criar conta</a> </span>
+
+  <!-- <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Esqueceu sua senha?</span> <a routerLink="/auth/reset" class="btn btn-danger">Recuperar Senha</a> </span> -->
+
+</header>
+<br> <br> <br> <br>
+<div style="background-color: #ff0000; border-color: #f10500;"class="alert alert-danger alert-dismissible" role="alert" *ngIf="errorCredentials">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>E-mail ou Senha incorreta.</strong>
+</div>
+<div id="main" role="main" class="animated fadeInDown">
+
+  <div id="content" class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+        <div class="well no-padding">
+          <form [formGroup]="f"class="smart-form client-form">
+            <header>
+              Acesso Restrito
+            </header>
+            <fieldset>
+              <section>
+                <label class="label" >E-mail</label>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="email" formControlName="email" name="email" data-smart-validate-input="" data-required="" data-email="" data-message-required="Please enter your email address" data-message-email="Por favor, digite um email">
+                  <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>
+                    Por favor, digite um email</b></label>
+              </section>
+              <section>
+                <label class="label">Senha</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input type="password" formControlName="password" name="password" data-smart-validate-input="" data-required="" data-minlength="3" data-maxnlength="20" data-message="Por favor, digite sua senha">
+                  <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i>          
+                    Por favor, digite uma senha</b> </label>
+
+                <div class="note">
+                </div>
+              </section>
+              <section>
+                <br><br>
+              </section>
+            </fieldset>
+            <footer>
+              <button type="submit" [disabled]="f.invalid" (click)="onSubmit()" class="btn btn-primary">
+                Entrar
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

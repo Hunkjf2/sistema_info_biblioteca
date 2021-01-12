@@ -1,0 +1,21 @@
+.profile-dtl{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+
+.login-info{
+    background-color: white;
+    height: 170px;
+    text-align: center;
+    background-position: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nome{
+    font-size: 18px;
+}
